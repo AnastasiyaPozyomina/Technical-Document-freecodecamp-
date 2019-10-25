@@ -1,0 +1,24 @@
+@media (max-width: 850px) {
+    .navbar {
+      position: static;
+      width: 100vw;
+      max-height: 300px;
+      text-align: center;
+      overflow-y: scroll;
+    }
+  
+    .navbar a {
+      width: 95%;
+    }
+  
+    .main-doc {
+      margin-left: 0;
+
+    }
+  
+    h2 {
+      font-size: 30px;
+    }
+  }
+
+  

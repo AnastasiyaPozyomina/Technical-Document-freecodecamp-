@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="en/ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="media.css">
+  <title>Technical Documentation Page</title>
+</head>
+
+<body>
+  <nav class="navbar" id="navbar">
+    <header>
+      <h1>SASS</h1>
+    </header>
+    <a href="#Advantages_of_Sass" class="nav-link">Advantages of Sass</a>
+    <a href="#Syntax" class="nav-link">Syntax</a>
+    <a href="#Using_Sass" class="nav-link">Using Sass</a>
+    <a href="#Css_Extension" class="nav-link">Css Extension</a>
+    <a href="#Commenting" class="nav-link">Commenting</a>
+    <a href="#SassScript" class="nav-link">SassScript</a>
+    <a href="#Rules_and_Directives" class="nav-link">Rules and Directives</a>
+    <a href="#Control_Directives_and_Expressions" class="nav-link">Control Directives and Expressions</a>
+    <a href="#Mixins" class="nav-link">Mixins</a>
+    <a href="#Functions" class="nav-link">Functions</a>
+    <a href="#The_Styles_of_The_Output_File" class="nav-link">The Styles of The Output File</a>
+    <a href="#Sass_Extension" class="nav-link">Sass Extension</a>
+  </nav>
+  <main class="main-doc" id="main-doc">
+    <section class="main-section" id="Advantages_of_Sass">
+      <header>Advantages of Sass </header>
+      <ul class="advantages-of-sass-items">
+        <li>Полная совместимость с CSS</li>
+        <p>Sass полностью совместим со всеми версиями CSS. Мы уделяем серьезное внимание совместимости, поэтому вы
+          можете легко использовать любые доступные библиотеки CSS. </p>
+
+
+        <li>Богатая функциональность
+        </li>
+        <p>Sass может похвастаться большим количеством возможностей, чем любой другой язык расширения CSS. Команда Sass
+          Core бесконечно работает не только для поддержания этих возможностей, но и для того, чтобы быть впереди. </p>
+        <li>Опыт
+
+        </li>
+        <p>Sass находится в активной разработке более 8 лет. </p>
+        <li>Поддержка индустрией
+
+        </li>
+        <p>Снова и снова сообщество разработчиков выбирает Sass как главное средство написания CSS. </p>
+        <li>Большое сообщество</li>
+        <p>Sass активно поддерживается и разрабатывается консорциумом высокотехнологичных компаний и нескольких сотен
+          разработчиков. </p>
+        <li>Фреймворки</li>
+        <p>Есть бесконечное количество фреймворков, построенных на Sass. Compass, Bourbon и Susy - это только несколько
+          примеров из всего количества. </p>
+      </ul>
+    </section>
+
+
+
+    <section class="main-section" id="Syntax">
+      <header>Syntax</header>
+      <p>Существует два варианта синтаксиса Sass:</p>
+      <p class="span">SCSS</p>
+
+      <p>Первый вариант известен как SCSS (Sassy CSS) и он является расширением синтаксиса CSS. Это означает, что
+        любое допустимое значение в CSS3 стилях будет допустимо и в SCSS. Кроме того, SCSS понимает большинство
+        СSS-хаков и синтаксис вендорных префиксов, например, старый префикс IE filter. Этот синтаксис усиливается с
+        применением возможностей Sass, описанных далее. Файлы этого варианта синтаксиса имеют расширение
+        <span>.scss.</span></p>
+      <p class="span">SASS</p>
+
+      <p>Второй вариант, к тому же самый старый, известен как синтаксис отступов (или просто sass). Этот синтаксис
+        обеспечивает более краткий вариант написания CSS. Он использует отступы вместо фигурных скобок, указывающие на
+        вложение селекторов, и новые строки, заменяющие точки с запятой, для разделения свойств. Некоторые
+        пользователи считают, что этот синтаксис легче читается и быстрее пишется, чем SCSS.</p>
+
+      <p>Синтаксис отступов имеет все те же функции, хотя и некоторые из них имеют немного другой вид написания, об
+        этом можно более подробно ознакомиться в главе документации 'SASS - синтаксис отступов'. Файлы этого варианта
+        синтаксиса имеют расширение <span>.sass</span>.</p>
+
+      <p>Любой из вариантов синтаксиса может импортировать файлы написанные в другом варианте синтаксиса. Файлы могут
+        автоматически конвертироваться в другой с помощью команды <span>sass-convert</span> в командной строке
+        (терминале): </p>
+      <p class="code"> <code>
+          # Convert Sass to SCSS<br>
+          $ sass-convert style.sass style.scss<br>
+          <br>
+          # Convert SCSS to Sass<br>
+          $ sass-convert style.scss style.sass </code></p>
+
+    </section>
+    <section class="main-section" id="Using_Sass">
+      <header>Using Sass</header>
+      <p>Sass может использоваться тремя путями:</p>
+      <ul class="using-sass-items">
+        <li>Как инструмент в командной строке</li>
+        <li>Как отдельный модуль Ruby</li>
+        <li>Как модуль для любого, поддерживающего Rack, фреймворка, в том числе Ruby On Rails и Merb</li>
+      </ul>
+      <p>Первым шагом для начала работы является установка gem'а Sass:</p>
+      <p class="code"><code>gem install sass</code></p>
+      <p>Если для работы вы используете Windows, сначала вам необходимо установить Ruby. </p>
+      <p>Для запуска Sass из командной строки используйте команду : </p>
+      <p class="code"><code>sass input.scss output.css</code></p>
+      <p>Также вы можете указать Sass следить за файлом и автоматически его компилировать в CSS при любом изменении:
+      </p>
+      <p class="code"><code>sass --watch input.scss:output.css</code></p>
+      <p>Если у вас в папке имеется несколько файлов Sass, то вы можете указать Sass следить за всей папкой:</p>
+      <p class="code"><code>sass --watch app/sass:public/stylesheets</code></p>
+      <p>Используйте команду <span>sass --help</span> для получения полной документации. </p>
+      <p>Использовать Sass в Ruby также очень просто. После установки gem'a Sass вы сможете его использовать, указав
+        <span>require "sass"</span> и c помощью Sass::Engine. Например: </p>
+      <p class="code"><code>engine = Sass::Engine.new("#main {background-color: #0000ff}", :syntax => :scss)<br>
+          engine.render #=> #main { background-color: #0000ff; }</code></p>
+      <h2>Использование в Rack/Rails/Merb</h2>
+      <p>Для подключения Sass в Rails версии ниже 3, укажите в файле <span>environment.rb</span> следующую строку:</p>
+      <p class="code"><code>config.gem "sass"</code></p>
+      <p>Для Rails 3 вместо вышенаписанного сделайте запись в Gemfile:</p>
+      <p class="code"><code>gem "sass"</code></p>
+      <p>Для подключения Sass в Merb версии ниже 3, укажите в файле <span>config/dependencies.rb</span> следующую
+        строку:</p>
+      <p class="code"><code>dependency "merb-haml"</code></p>
+      <p>Для подключения Sass в Rack-приложении, укажите в файле config.ru:</p>
+      <p class="code"><code>require 'sass/plugin/rack'<br>
+          use Sass::Plugin::Rack</code></p>
+      <p>Сам по себе Sass не работает как таблица стилей. Он не оборачивает динамический контент, для того чтобы все
+        работало, нужно сразу же после обновления Sass-файла генерировать CSS-файл.</p>
+      <p>По умолчанию файлы <span>.sass</span> и <span>.scss</span> находятся в <span>public/stylesheets/sass</span>
+        (можно изменить с помощью опции
+        <span>:template_location)</span>. Затем, когда это необходимо, они компилируются в соответствующие CSS-файлы в
+        <span>public/stylesheets</span>. Например, <span>
+          <public/stylesheets/sass/main.scss/span> будет скомпилирован в <span>public/stylesheets/main.css.
+        </span></p>
+      <h2>Кеширование</h2>
+      <p>По умолчанию Sass кеширует компилируемые шаблоны и фрагменты. Это значительно ускоряет повторную компиляцию
+        больших коллекций Sass-файлов, и работает лучше всего, если шаблоны Sass разделены на отдельные файлы, которые
+        импортируются в один файл.</p>
+      <p>Без использования фреймворков Sass кладет скешированные шаблоны в папку <span>sass-cache</span>. В Rails и Merb
+        в папку
+        <span>tmp/sass-cache</span>. Папка может быть изменена с помощью опции <span>:cache_location</span>. Если Вы не
+        хотите, чтобы Sass
+        использовал кеш, то можете отключить данную функцию, если параметру <span>:cache</span> зададите значение
+        <span>false</span>.</p>
+      <h2>Выбор синтаксиса</h2>
+      <p>Если вы работаете с Sass через командную строку, то синтаксис определяется через расширение файла. Однако,
+        синтаксис можно выбрать не только расширением файла. Синтаксис по умолчанию - синтаксис отступов, но вы можете
+        изменить синтаксис, применив параметр <span>--scss</span>, и тогда входной файл будет читаться как файл с
+        синтаксисом scss.
+        Кроме того, вы можете при синтаксисе scss использовать команды синтаксиса sass и они будут также исполняться.
+      </p>
+      <h2>Кодировка</h2>
+      <p>Когда используется Ruby 1.9 или более поздние версии, Sass сам определяет кодировку файла. Для определения
+        кодировки таблицы стилей Sass использует CSS спецификации, после определения Sass возвращает кодировку в Ruby
+        для правильной компиляции. Это означает, что сначала идет считывание порядка байтов Unicode, далее директивы
+        <span>@charset</span>, потом кодировки строк Ruby. Если ни один из них строго не заданы, то документу
+        присваивается значение
+        по умолчанию - <span>UTF-8</span>.</p>
+      <p>Чтобы явно указать кодировку таблицы стилей, используйте директиву @charset как и в обычном CSS. Добавьте
+        конструкцию <span>@charset "имя кодировки"</span> в начале таблицы стилей (не пропуская пробелов и перед любыми
+        комментариями) и Sass будет интерпретировать это как заданную кодировку. Обратите внимание на то, что какую бы
+        вы не использовали кодировку, она должна конвертироваться в Unicode.</p>
+      <p>Sass всегда будет компилировать результирующие файлы в кодировке UTF-8. Такие файлы всегда будут иметь запись
+        <span>@charset</span>, если, и только в этом случае, результирующий файл будет содержать в себе не ASCII
+        контент. В сжатом
+        стиле в кодировке UTF-8 байт отведенный под директиву <span>@charset</span> будет помечен как используемый.</p>
+    </section>
+    <section class="main-section" id="Css_Extension">
+      <header>Css Extension</header>
+      <h2>Вложенные правила</h2>
+      <p>Sass позволяет вкладывать правила CSS друг в друга. Вложенные правила применяются только для элементов,
+        соответствующих внешним селекторам. Например, такая запись в Sass:</p>
+      <p class="code"><code>
+          #main p {<br>
+          color: #00ff00;<br>
+          width: 97%;<br>
+          <br>
+          .redbox <br>
+          background-color: #ff0000;<br>
+          color: #000000;<br>
+          }<br>
+          }<br>
+        </code></p>
+      <p>компилируется в такой код CSS:</p>
+      <p class="code"><code>#main p {<br>
+          color: #00ff00;<br>
+          width: 97%; }<br>
+          #main p .redbox {<br>
+          background-color: #ff0000;<br>
+          color: #000000; }</code></p>
+      <p>Это помогает избежать повторения родительских селекторов, и делает сложные CSS макеты с большим количеством
+        вложенных селекторов гораздо проще. Например:</p>
+      <p class="code"><code>
+          #main {<br>
+          width: 97%;<br>
+
+          p, div {<br>
+          font-size: 2em;<br>
+          a { font-weight: bold; }<br>
+          }<br>
+          <br>
+          pre { font-size: 3em; }<br>
+          }
+        </code></p>
+      <p>компилируется в:</p>
+      <p class="code"><code>#main {
+          width: 97%; }<br>
+          #main p, #main div {<br>
+          font-size: 2em; }<br>
+          #main p a, #main div a {<br>
+          font-weight: bold; }<br>
+          #main pre {<br>
+          font-size: 3em; }</code></p>
+      <h2>Ссылка на родителя селектора</h2>
+      <p>Иногда полезно использовать родительский селектор с другим предназначением, чем по умолчанию. Например, вы
+        захотите использовать специальные стили для случая, когда над выбранными элементами находится курсор или когда
+        тело элемента имеет определенный класс. В этих случаях, с помощью символа <span>&</span> вы можете явно указать,
+        где должен
+        быть вставлен родительский селектор, например:</p>
+      <p class="code"><code>a {<br>
+          font-weight: bold;<br>
+          text-decoration: none;<br>
+          &:hover { text-decoration: underline; }<br>
+          body.firefox & { font-weight: normal; }<br>
+          }</code></p>
+      <p>компилируется в:</p>
+      <p class="code"><code>a {<br>
+          font-weight: bold;<br>
+          text-decoration: none; }<br>
+          a:hover {<br>
+          text-decoration: underline; }<br>
+          body.firefox a {<br>
+          font-weight: normal; }</code></p>
+      <p>Символ & будет заменен на родительский селектор, каким он компилируется в CSS. Это означает, что если у вас
+        есть глубоко вложенное правило, родительский селектор будет полностью вычислен до символа <span>&</span> и
+        подставится вместо
+        него. Например:</p>
+      <p class="code"><code>#main {<br>
+          color: black;<br>
+          &-sidebar { border: 1px solid; }<br>
+          }</code></p>
+      <p>компилируется в:</p>
+      <p class="code"><code>#main {<br>
+          color: black; }<br>
+          #main-sidebar {<br>
+          border: 1px solid; }</code></p>
+      <h2>Вложенные свойства</h2>
+      <p>CSS имеет довольно много свойств в пространстве имен, например, <span>font-family</span>,
+        <span>font-size</span> и <span>font-weight</span> находятся в пространстве имен <span>font</span>.</p>
+      <p>В CSS, если вы хотите установить набор свойств в общем пространстве имен, вы должны вводить его каждый раз.
+        Sass упрощает этот процесс: просто напишите пространство имен единожды, а внутри вы можете вписать любое из
+        вторичных свойств. Например:</p>
+      <p class="code"><code>.funky {<br>
+          font: {<br>
+          family: fantasy;<br>
+          size: 30em;<br>
+          weight: bold;<br>
+          }<br>
+          }</code></p>
+      <p>компилируется в:</p>
+      <p class="code"><code>.funky {<br>
+          font-family: fantasy;<br>
+          font-size: 30em;<br>
+          font-weight: bold; }</code></p><br>
+      <p>Само пространство имен также может иметь значение. Например:</p>
+      <p class="code"><code>.funky {<br>
+          font: 20px/24px fantasy {<br>
+          weight: bold;<br>
+          }<br>
+          }</code></p>
+      <p>компилируется в:</p>
+      <p class="code"><code>.funky {<br>
+          font: 20px/24px fantasy;<br>
+          font-weight: bold;<br>
+          }</code></p>
+      <h2>Шаблонные селекторы</h2>
+      <p>Sass поддерживает специальный тип селекторов под названием шаблонные селекторы. Они похожи на селекторы классов
+        и идентификаторов, только вместо <span>#</span> или <span>.</span> указывается <span>%</span>. Они предназначены
+        для использования с директивой
+        <span>@extend</span>.</p>
+      <p>Сами по себе, без использования @extend, наборы правил, которые используют шаблонные селекторы, не окажут
+        влияния на CSS. Например:</p>
+      <p class="code"><code>%inline-type {<br>
+          display: inline-block;<br>
+          *display: inline;<br>
+          *zoom: 1;<br>
+          margin-right: -4px;<br>
+          vertical-align: top;<br>
+          }<br>
+          <br>
+          %for-grids {<br>
+          min-height: 1px;<br>
+          position: relative;<br>
+          padding-left: 10px;<br>
+          padding-right: 10px;<br>
+          margin-bottom: 20px;<br>
+          }<br>
+          <br>
+          .sgrid-N {<br>
+          @extend %for-grids;<br>
+          }</code></p>
+      <p>компилируется в:</p>
+      <p class="code"><code>.sgrid-N {<br>
+          min-height: 1px;<br>
+          position: relative;<br>
+          padding-left: 10px;<br>
+          padding-right: 10px;<br>
+          margin-bottom: 20px; }</code></p>
+    </section>
+    <section class="main-section" id="Commenting">
+      <header>Commenting</header>
+      <p>Sass поддерживает стандартный многострочный CSS комментарий, обозначаемый <span>/* */</span>, а также
+        однострочный
+        комментарий, обозначаемый <span>//</span>. Многострочные комментарии сохраняются на выходе в файле CSS, где это
+        возможно, в
+        то время как однострочные комментарии удаляются. Например:</p>
+      <p class="code"><code>
+          /* Это многострочный комментарий.<br>
+          * Так как этот тип комментирования<br>
+          * поддерживается в CSS, то он <br>
+          * попадет в скомпилированный CSS-файл. */<br>
+          body { color: black; }<br>
+          <br>
+          // Это однострочный комментарий.<br>
+          // CSS не поддерживает данный вариант комментирования.<br>
+          // Поэтому данного комментария не будет в CSS-файле.<br>
+          a { color: green; }
+
+        </code></p>
+      <p>компилируется в:</p>
+      <p class="code">
+        <code>/* Это многострочный комментарий.<br>
+          * Так как этот тип комментирования<br>
+          * поддерживается в CSS, то он и<br>
+          * попадет в скомпилированный CSS-файл. */<br>
+          body { color: black; }<br>
+          <br>
+          a { color: green; }</code></p>
+      <p>Если первым символом многострочного комментария является знак <span>!</span>, то комментарий всегда будет
+        оставаться в результирующем CSS, даже в режиме сжатия. Это полезно, например, для добавления уведомления об
+        авторских правах на ваш CSS.</p>
+      <p>Поскольку многострочные комментарии становятся частью результирующего CSS, в них разрешена интерполяция.
+        Например:</p>
+      <p class="code"><code>$version: "1.1.3";<br>
+          /* Этот CSS построен с использованием SomeGrids. Версия: #{$version}. */</code></p>
+      <p>компилируется в:</p>
+      <p class="code"><code>/* Этот CSS построен с использованием SomeGrids. Версия: 1.1.3. */</code></p>
+    </section>
+    <section class="main-section" id="SassScript">
+      <header>SassScript</header>
+      <p>В дополнение к обычному синтаксису CSS, Sass поддерживает небольшой набор расширений под названием SassScript.
+        SassScript добавляет поддержку использования переменных, арифметических и экстра функций. SassScript может быть
+        использован в любом значении свойств.</p>
+      <p>SassScript также может быть использован для создания селекторов и имен свойств, что полезно при написании
+        миксинов. Это делается с помощью интерполяции.</p>
+    </section>
+    <section class="main-section" id="Rules_and_Directives">
+      <header>Rules and Directives</header>
+      <p>Sass поддерживает все CSS3 @-правила, а также дополнительные специфические правила Sass, называемые
+        "директивами". Они дают различные эффекты в Sass, которые мы рассмотрим далее. Читайте также директивы контроля
+        и миксины.</p>
+    </section>
+    <section class="main-section" id="Control_Directives_and_Expressions">
+      <header>Control Directives and Expressions</header>
+      <p>SassScript поддерживает базовые управляющие директивы и выражения для подключения стилей при определённых
+        условиях или подключения одних и тех же стилей несколько раз с изменениями.</p>
+      <p>Обратите внимание: управляющие директивы - это продвинутые возможности, не для повседневного использования. Они
+        предназначены в основном для использования в миксинах, частично для тех, которые являются частью таких
+        библиотек, как Compass и, соответственно, требующих существенной гибкости.</p>
+    </section>
+    <section class="main-section" id="Mixins">
+      <header>Mixins</header>
+      <p>Миксины (часто используется название примеси) позволяют определить стили, которые могут быть использованы
+        повторно в любом месте документа без необходимости прибегать к несемантическим классам вроде .float-left.
+        Миксины также могут содержать целые CSS правила или что-либо другое, разрешённое в Sass документе. Они даже
+        могут принимать аргументы, что позволяет создавать большое разнообразие стилей при помощи небольшого количества
+        миксинов.</p>
+    </section>
+    <section class="main-section" id="Functions">
+      <header>Functions</header>
+      <p>Существует возможность определить собственные функции в Sass и использовать их в любом значении или контексте
+        скрипта. Например:</p>
+      <p class="code"><code>$grid-width: 40px;<br>
+          $gutter-width: 10px;<br>
+          @function grid-width($n) {<br>
+          @return $n * $grid-width + ($n - 1) * $gutter-width;<br>
+          }<br>
+          <br>
+          #sidebar { width: grid-width(5); }
+        </code></p>
+      <p>компилируется в</p>
+      <p class="code"><code>#sidebar {<br>
+          width: 240px; }</code></p>
+
+      <p>Как вы видите, функции имеют доступ к любым глобальным переменным, а также принимают параметры как и миксины
+        (примеси). Функция может содержать несколько операторов, и вы должны вызвать <span>@return</span>, чтобы
+        установить возвращаемое значение функции.</p>
+      <p>Также, как и миксины, определённые в Sass функции могут быть вызваны с именованными аргументами. В предыдущем
+        примере мы могли бы вызвать функцию так:</p>
+      <p class="code"><code>#sidebar { width: grid-width($n: 5); }</code></p>
+    </section>
+
+    <section class="main-section" id="The_Styles_of_The_Output_File">
+      <header>The Styles of The Output File</header>
+      <p>Хотя стиль вывода CSS, который Sass использует по умолчанию, достаточно хорош и отражает структуру документа,
+        вкусы и требования отличаются, и поэтому Sass поддерживает несколько других стилей.</p>
+      <p>Sass позволяет выбрать между четырьмя различными стилями вывода путём установки опции <span>:style</span> или
+        использования
+        параметра командной строки <span>--style.</span></p>
+    </section>
+    <section class="main-section" id="Sass_Extension">
+      <header>Sass Extension</header>
+      <p>Sass предоставляет множество продвинутых возможностей по кастомизации для пользователей с нестандартными
+        требованиями. Использование этих возможностей требует хорошего владения Ruby.</p>
+    </section>
+  </main>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</body>
+
+</html>
